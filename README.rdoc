@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. All employees in Pune(or any other city). eg: "baner"
+  Employee.joins(:address).where("addresses.area=?", "baner")
+ 
+2. Search any employee via name and/or email should return the name email and his/her address
+  Employee.joins(:address).where("employees.name=?","bhushan").pluck(:name,:email,:area)
 
-Things you may want to cover:
+3. List of employees earning between 10K to 50K
+  Employee.all.where("salary > ?", 45000).where("salary < ?",50000).pluck(:name,:salary)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+4. salary greater than 50k
+  Employee.all.where("salary > ?", 50000).pluck(:name,:salary)
