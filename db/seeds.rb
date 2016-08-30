@@ -15,10 +15,10 @@ companies = [
 ]
 
 amura_employee = [
-  ["bhushan","bhushan@amura.com",2016,"9720147456",50000,"sell.do"],
-  ["jayesh","jayesh@amura.com",2016,"3434343434",51000,"Sell.do"],
-  ["akash","akash@amura.com",2016,"2121212121",50000,"Sell.do"],
-  ["shubham","shubham@amura.com",2016,"5656565656",50000,"hub"],
+  ["bhushan","bhushan@amura.com",2016,"9720147456",48000,"sell.do"],
+  ["jayesh","jayesh@amura.com",2016,"3434343434",55000,"Sell.do"],
+  ["akash","akash@amura.com",2016,"2121212121",53000,"Sell.do"],
+  ["shubham","shubham@amura.com",2016,"5656565656",45000,"hub"],
   ["amrut","amrut@amura.com",2016,"4242424242",48000,"hub"]
 ]
 
