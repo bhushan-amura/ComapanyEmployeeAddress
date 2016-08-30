@@ -6,4 +6,5 @@ class Company < ActiveRecord::Base
         format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i},
         uniqueness: {case_sensitive: false}
   validates :phone, presence: true, uniqueness: true
+  #validates_associated :employees, :addressable
 end
