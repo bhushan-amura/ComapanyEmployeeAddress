@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829115644) do
+ActiveRecord::Schema.define(version: 20160830114159) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "area"
@@ -38,14 +38,22 @@ ActiveRecord::Schema.define(version: 20160829115644) do
     t.string   "email"
     t.date     "join_year"
     t.string   "phone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "company_id"
-    t.integer  "salary"
-    t.string   "designation"
   end
 
   add_index "employees", ["company_id"], name: "index_employees_on_company_id"
   add_index "employees", ["email", "phone"], name: "index_employees_on_email_and_phone", unique: true
+
+  create_table "salary_designations", force: :cascade do |t|
+    t.integer  "salary"
+    t.string   "designation"
+    t.integer  "employee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "salary_designations", ["employee_id"], name: "index_salary_designations_on_employee_id"
 
 end

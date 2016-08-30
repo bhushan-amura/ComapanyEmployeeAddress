@@ -7,7 +7,7 @@
   Employee.joins(:address).where("employees.name=?","bhushan").pluck(:name,:email,:area)
 
 3. List of employees earning between 10K to 50K
-  Employee.all.where("salary > ?", 45000).where("salary < ?",50000).pluck(:name,:salary)
+  Employee.joins(:salary_designation).where("salary", 43000...50000).pluck(:name,:salary)
 
 4. salary greater than 50k
   Employee.all.where("salary > ?", 50000).pluck(:name,:salary)
