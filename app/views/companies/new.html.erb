@@ -1,0 +1,18 @@
+<h1>Companies#new</h1>
+
+<h2>Create Company</h2>
+
+<%= form_for(:company, :url => {:action => 'create'}) do |f| %>
+
+  <p><%= f.label :name %>  <%= f.text_field :name,  class: 'form-control' %><br /></p>
+  <p><%= f.label :email %> <%= f.text_field :email, class: 'form-control' %><br /></p>
+  <p><%= f.label :phone %> <%= f.text_field :phone, class: 'form-control' %><br /></p>
+
+<%= fields_for(:address) do |g| %>
+    <%= g.label :area %>
+    <%= g.text_field:area %>
+  <% end %>
+
+  <p><%= f.submit 'Add Company', class: 'btn btn-primary' %></p>
+
+<% end %>

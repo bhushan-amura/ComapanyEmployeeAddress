@@ -1,0 +1,11 @@
+<h1>Companies#index</h1>
+<%= link_to("Add New Company", {:action => 'new'}) %>
+
+ <% @companies.each do |f| %>
+  <p>Name  :  <%= f.name %><br /></p>
+  <p>Email :  <%= f.email %><br /></p>
+  <p>Phone :  <%= f.phone %><br /></p>
+  <p>Address :  <%= f.address.area if !f.address.nil? %><br /></p>
+  </p>
+  <hr />
+<% end %>
