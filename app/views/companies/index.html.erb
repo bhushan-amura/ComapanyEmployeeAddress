@@ -6,6 +6,6 @@
   <p>Email :  <%= f.email %><br /></p>
   <p>Phone :  <%= f.phone %><br /></p>
   <p>Address :  <%= f.address.area if !f.address.nil? %><br /></p>
-  </p>
+  <%= link_to("Delete", company_path(f.id), method: 'destroy', data: {confirm: "Are you sure?"}) %>
   <hr />
 <% end %>

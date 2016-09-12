@@ -8,8 +8,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
+
     @company = Company.new(company_params)
-    @company.create_address(address_params)
+    #@company.create_address(address_params)
+    byebug
     if @company.save
       redirect_to action: :index
     else
@@ -40,6 +42,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
+    @company = Company.find(params[:id])
     company = Company.find(params[:id])
     company.destroy
     redirect_to action: :index
@@ -47,7 +50,7 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params.require(:company).permit(:name,:email,:phone)
+    params.require(:company).permit(:name,:email,:phone,:address_attributes => [ :area ])
   end
 
   def address_params
