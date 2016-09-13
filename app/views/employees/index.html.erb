@@ -1,0 +1,11 @@
+<h1>Employees#index</h1>
+
+<% @employees.each do |f| %>
+<p>Name  :  <%= f.name %><br /></p>
+<p>Email :  <%= f.email %><br /></p>
+<p>Phone :  <%= f.phone %><br /></p>
+<p>Join Year :  <%= f.join_year %><br /></p>
+
+<p>Address :  <%= f.address.area if !f.address.nil? %><br /></p>
+<hr />
+<% end %>

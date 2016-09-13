@@ -1,7 +1,7 @@
 <h1>Companies#new</h1>
 
-<h2>Create Company</h2>
-
+<h2>Add Company</h2>
+<%= render 'layouts/error_messages', object: @company  %>
 <%= form_for(:company, :url => {:action => 'create'}) do |f| %>
 
   <p><%= f.label :name %>  <%= f.text_field :name,  class: 'form-control' %><br /></p>

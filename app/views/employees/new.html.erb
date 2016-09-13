@@ -1,0 +1,25 @@
+<h1>Employees#new</h1>
+<h2>Add Employee </h2>
+<%= render 'layouts/error_messages', object: @employee  %>
+<%= form_for(:employee, :url => {:action => 'create'} ) do |f| %>
+
+  <p><%= f.label :name %>  <%= f.text_field :name,  class: 'form-control' %><br /></p>
+  <p><%= f.label :email %> <%= f.text_field :email, class: 'form-control' %><br /></p>
+  <p><%= f.label :phone %> <%= f.text_field :phone, class: 'form-control' %><br /></p>
+  <p><%= f.label :join_year %> <%= f.date_field :join_year, class: 'form-control' %><br /></p>
+
+  <%= f.fields_for(:address_attributes) do |g| %>
+    <p><%= g.label :area %>
+    <%= g.text_field:area %></p>
+  <% end %>
+  <%= f.fields_for(:salary_designation_attributes) do |g| %>
+    <p><%= g.label :salary %>
+    <%= g.text_field:salary %></p>
+    <p><%= g.label :designation %>
+    <%= g.text_field:designation %></p>
+  <% end %>
+
+
+  <p><%= f.submit 'Add Employee', class: 'btn btn-primary' %></p>
+
+<% end %>

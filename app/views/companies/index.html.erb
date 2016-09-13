@@ -6,6 +6,7 @@
   <p>Email :  <%= f.email %><br /></p>
   <p>Phone :  <%= f.phone %><br /></p>
   <p>Address :  <%= f.address.area if !f.address.nil? %><br /></p>
-  <%= link_to("Delete", company_path(f.id), method: 'destroy', data: {confirm: "Are you sure?"}) %>
+  <%= link_to("Delete", company_path(f.id), method: 'delete', data: {confirm: "Are you sure?"}) %>
+  <%= link_to('Add Employee',new_company_employee_path(f.id), controller: :employees, action: :new )%>
   <hr />
 <% end %>
