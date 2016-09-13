@@ -8,11 +8,11 @@
   <p><%= f.label :phone %> <%= f.text_field :phone, class: 'form-control' %><br /></p>
   <p><%= f.label :join_year %> <%= f.date_field :join_year, class: 'form-control' %><br /></p>
 
-  <%= f.fields_for(:address_attributes) do |g| %>
+  <%= f.fields_for :address do |g| %>
     <p><%= g.label :area %>
     <%= g.text_field:area %></p>
   <% end %>
-  <%= f.fields_for(:salary_designation_attributes) do |g| %>
+  <%= f.fields_for(:salary_designation) do |g| %>
     <p><%= g.label :salary %>
     <%= g.text_field:salary %></p>
     <p><%= g.label :designation %>

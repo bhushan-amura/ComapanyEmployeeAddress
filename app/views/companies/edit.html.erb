@@ -1,2 +1,18 @@
 <h1>Companies#edit</h1>
-<p>Find me in app/views/companies/edit.html.erb</p>
+
+
+<%= render 'layouts/error_messages', object: @company  %>
+<%= form_for(:company, :url => {:action => 'update'},method: :put) do |f| %>
+
+  <p><%= f.label :name %>  <%= f.text_field :name,  class: 'form-control' %><br /></p>
+  <p><%= f.label :email %> <%= f.text_field :email, class: 'form-control' %><br /></p>
+  <p><%= f.label :phone %> <%= f.text_field :phone, class: 'form-control' %><br /></p>
+
+  <%= f.fields_for :address_attributes,(@company.address) do |g| %>
+    <%= g.label :area %>
+    <%= g.text_field :area %>
+  <% end %>
+
+  <p><%= f.submit 'Update Company', class: 'btn btn-primary' %></p>
+
+<% end %>
