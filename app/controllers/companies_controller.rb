@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
+  # around_action :logged_in?, on:[:create,:destroy]
   def index
     @companies = Company.all
+    logger.info "showing list of companies"
+    logger.tagged("ABC") {logger.info "info logger here tagged ABC"}
+    CUSTOM_LOGGER.info("showing list of companies")
   end
 
   def new
@@ -11,7 +15,7 @@ class CompaniesController < ApplicationController
 
     @company = Company.new(company_params)
     #@company.create_address(address_params)
-    byebug
+    # byebug
     if @company.save
       redirect_to action: :index
     else
@@ -21,6 +25,9 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    logger.info "showing company #{@company.name}"
+    CUSTOM_LOGGER.info("showing company #{@company.name}")
+    # @employees = @company.employees
   end
 
   def edit
@@ -42,7 +49,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:id])
+    # @company = Company.find(params[:id])
     company = Company.find(params[:id])
     company.destroy
     redirect_to action: :index
@@ -55,5 +62,13 @@ class CompaniesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:area)
+  end
+
+  def logged_in?
+    if #check login status
+      yield
+    else
+      #redirect to login
+    end
   end
 end
